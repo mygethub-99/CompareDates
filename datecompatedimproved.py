@@ -14,8 +14,11 @@ with open('datecompare.csv') as f:
     for line in f:
         trklist = []
         lstarter = line.split(',')
+        '''OrgSiteAq, OrgConSt, OrgConfin'''
         list1 = (lstarter[5] , lstarter[6] , lstarter[7])
+        '''SiteAqComp, ConSt, ConCompl'''
         list2 = (lstarter[8] , lstarter[10] , lstarter[11])
+        '''FA, ConSt, OnAir'''
         list3 = (lstarter[1], lstarter[10], lstarter[13])
         
         #Loop to organize list for relative date
@@ -24,7 +27,7 @@ with open('datecompare.csv') as f:
             olaq = date(int(y[0:4]), int(y[4:6]), int(y[6:8]))
             comp = str(relativedelta (olaq, ls))
             #comb = (str(z), comp[14:])
-            trklist.insert(0, (str(z), comp[14:]))
+            trklist.insert(1, (str(z), comp[14:]))
             if len(trklist) == 3:
                 tofile.insert(0, [trklist])
                 del(trklist)
